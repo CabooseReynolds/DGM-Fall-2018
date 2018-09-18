@@ -1,6 +1,6 @@
 //Maya ASCII 2018ff08 scene
 //Name: Rename script.ma
-//Last modified: Mon, Sep 17, 2018 10:22:18 PM
+//Last modified: Tue, Sep 18, 2018 09:07:08 AM
 //Codeset: 1252
 requires maya "2018ff08";
 requires "mtoa" "3.0.0.2";
@@ -691,19 +691,19 @@ createNode mesh -n "No_17_You_dontShape" -p "No_17_You_dont";
 	setAttr ".hfd" -type "dataPolyComponent" Index_Data Face 0 ;
 	setAttr ".ai_translator" -type "string" "polymesh";
 createNode lightLinker -s -n "lightLinker1";
-	rename -uid "143D16B8-46D1-60DD-B0C4-A18D9CB1F7D5";
+	rename -uid "6E9454F2-4130-F68F-B824-AE8B9E0599A9";
 	setAttr -s 2 ".lnk";
 	setAttr -s 2 ".slnk";
 createNode shapeEditorManager -n "shapeEditorManager";
-	rename -uid "90F1BBC4-46FF-986D-AAC5-5CA75A8890C4";
+	rename -uid "C2F18779-4F7F-1E10-BB90-F2AAEF5F4D11";
 createNode poseInterpolatorManager -n "poseInterpolatorManager";
-	rename -uid "DB808BDB-404A-4BD6-6A9A-AAA372F1A887";
+	rename -uid "B32C02A1-4A5F-C1CE-1C6B-5ABDD5E029B8";
 createNode displayLayerManager -n "layerManager";
-	rename -uid "E40F6DB5-4203-DB21-22A4-4A877E1C715F";
+	rename -uid "9E4A48F5-47D5-6084-5D12-C9B950D89500";
 createNode displayLayer -n "defaultLayer";
 	rename -uid "E2DF5301-484D-FFE0-C67A-60B0B6D56550";
 createNode renderLayerManager -n "renderLayerManager";
-	rename -uid "788903BF-45D2-2ED1-6F0C-A08793270A10";
+	rename -uid "79FCEEA2-469A-729A-03EF-DCAFBA81223C";
 createNode renderLayer -n "defaultRenderLayer";
 	rename -uid "CD330952-4885-C532-27AB-699926853F81";
 	setAttr ".g" yes;

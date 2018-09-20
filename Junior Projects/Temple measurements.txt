@@ -1,0 +1,7 @@
+Max width - 239.375
+Max Width - 418.123
+
+Min Width - 163.791
+Min Length - 342.542
+
+Space columns - 39.58 - 19.79

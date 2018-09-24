@@ -1,0 +1,14 @@
+{
+	string $selection[] = `ls -sl`;
+	float $controlRadius = 1; 
+
+for($i = 0; $i < size($selection); $i++)
+{
+	string $ctrl[] = `circle -c 0 0 0 -nr 0 1 0 -sw 360 -r $controlRadius -d 3 -ut -0 -tol 0.01 -s 8 -ch 1`;
+	group;
+
+    select -add $selection[$i];
+    matchTransform;
+}
+
+}

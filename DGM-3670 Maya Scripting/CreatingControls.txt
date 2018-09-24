@@ -21,14 +21,14 @@ for($i = 0; $i < size($selection); $i++)
 			$newName += ("_" + $name[$h]);
 		}
     
-// Adding Ctrl to the name of the Ctrl
+// Adding _Ctrl to the name of the newName for the Obj
 	string $ctrlName = ($newName + "_Ctrl");
 	rename $ctrl [0] $ctrlName;
 
 // Change color of the Ctrl Shape
 	color -rgb 1 0 0 $ctrlName;
 
-// Creating the Grop and adding the Grp name to the Ctrl Name
+// Creating the Grop and adding the _Grp name to the Ctrl Name
 	group -name ($ctrlName + "_Grp");
 
 // 

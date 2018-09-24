@@ -4,11 +4,34 @@
 
 for($i = 0; $i < size($selection); $i++)
 {
-	string $ctrl[] = `circle -c 0 0 0 -nr 0 1 0 -sw 360 -r $controlRadius -d 3 -ut -0 -tol 0.01 -s 8 -ch 1`;
-	group;
+	string $ctrl[] = `circle -c 0 0 0 -nr 0 1 0 -sw 360 -r $controlRadius -d 3 -ut 0 -tol 0.01 -s 8 -ch 1`;
+	string $name[];
+	tokenize $selection[$i] "_" $name;
+	string $newName = $name[0];
+
+	for($h = 1; $h <size($name) - 1; $h++)
+		{
+			$newName += ("_" + $name[$h]);
+		}
+	if ($name[size($name) - 1] != "Jnt")
+		{
+			$newName += ("_" + $name[size($name) - 1]);
+		}
+    
+
+	string $ctrlName = ($newName + "_Ctrl");
+
+	rename $ctrl [0] $ctrlName;
+	color -rgb 1 0 0 $ctrlName;
+	group -name ($ctrlName + "_Grp");
 
     select -add $selection[$i];
     matchTransform;
 }
+    if (size($selection) == 0)
+    {
+        string $ctrl[] = `circle -c 0 0 0 -nr 0 1 0 -sw 360 -r $controlRadius -d 3 -ut -0 -tol 0.01 -s 8 -ch 1`;
+        group;
+    }
 
 }

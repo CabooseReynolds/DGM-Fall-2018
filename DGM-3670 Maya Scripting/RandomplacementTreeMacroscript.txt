@@ -43,8 +43,8 @@ delete -ch pCylinder7;
 select -r pCylinder7 ;
 rename "pCylinder7" "Tree";
 
-DuplicateObject(25, -25, 25, -25, 25);
-global proc DuplicateObject (int $amount, float $xMin, float $xMax, float $yMin, float $yMax)
+DuplicateObject(25, -25, 25, -25, 25, -25, 25);
+global proc DuplicateObject (int $amount, float $xMin, float $xMax, float $yMin, float $yMax, float $zMin, float $zMax)
 {
     string $selection[] =`ls -selection`;
   
@@ -56,8 +56,9 @@ global proc DuplicateObject (int $amount, float $xMin, float $xMax, float $yMin,
            duplicate -rr $selection[$j];
            float $xRand = rand ($xMin, $xMax);
            float $yRand= rand ($yMin, $yMax);
+           float $zRand = rand ($zMin, $zMax);
 //           float $randNum = rand (1 3);
-           move -ws -wd $xRand 0 $yRand $selection[$j];
+           move -ws -wd $xRand $zRand $yRand $selection[$j];
 //	   scale -r $randNum $randNum $randNum ;
         }
         

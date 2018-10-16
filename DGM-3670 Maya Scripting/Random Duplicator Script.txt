@@ -15,11 +15,18 @@ global proc DuplicateObject (string $dupAmount, string $xMinName, string $xMaxNa
 	float $zMax = `GetFloatFieldValue($zMaxName)`;
 	
 	//Creates parameters for duplicates
+<<<<<<< HEAD
     for($j = 0; $j < size($selection); $j++)
 //    for($i = 0; $i < $amount; $i++)
     {
         for($i = 0; $i < $amount; $i++)
  //       for($j = 0; $j < size($selection); $j++)
+=======
+    for($i = 0; $i < $amount; $i++)
+    {
+        
+        for($j = 0; $j < size($selection); $j++)
+>>>>>>> master
         {
            duplicate -rr $selection[$j];
            float $xRand = rand ($xMin, $xMax);

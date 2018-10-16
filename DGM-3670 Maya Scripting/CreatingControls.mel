@@ -111,10 +111,10 @@ global proc CreateControlsUI()
 	
 	string $shapeRowLayout = `rowLayout -parent $mainCol -numberOfColumns 5 -columnAttach5 "left" "left" "left" "left" "left" -columnOffset5 0 10 10 10 10`;
 	text -parent $shapeRowLayout -label "Control Shape";
-	string $circleButton = `button -parent $shapeRowLayout -label "Circle" -command ("CreateCtrls(\"circle\")")`;
-	string $squareButton = `button -parent $shapeRowLayout -label "Square" -command ("CreateCtrls(\"square\")")`;
-	string $flowerButton = `button -parent $shapeRowLayout -label "Flower" -command ("CreateCtrls(\"flower\")")`;
-	string $diamondButton = `button -parent $shapeRowLayout -label "Diamond" -command ("CreateCtrls(\"diamond\")")`;
+	string $button = `button -parent $shapeRowLayout -label "Circle" -command ("CreateCtrls(\"circle\")")`;
+	string $button = `button -parent $shapeRowLayout -label "Square" -command ("CreateCtrls(\"square\")")`;
+	string $button = `button -parent $shapeRowLayout -label "Flower" -command ("CreateCtrls(\"flower\")")`;
+	string $button = `button -parent $shapeRowLayout -label "Diamond" -command ("CreateCtrls(\"diamond\")")`;
 	
 /*	string $rangeRowLayout = `rowLayout -parent $mainCol -numberOfColumns 4` -columnAttach 4  "left" "left" "left" "left" -columnOffset4 0 10`;
 	text -parent $rangeRowLayout -label "Range";

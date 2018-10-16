@@ -15,10 +15,18 @@ global proc DuplicateObject (string $dupAmount, string $xMinName, string $xMaxNa
 	float $zMax = `GetFloatFieldValue($zMaxName)`;
 	
 	//Creates parameters for duplicates
+<<<<<<< HEAD
+    for($j = 0; $j < size($selection); $j++)
+//    for($i = 0; $i < $amount; $i++)
+    {
+        for($i = 0; $i < $amount; $i++)
+ //       for($j = 0; $j < size($selection); $j++)
+=======
     for($i = 0; $i < $amount; $i++)
     {
         
         for($j = 0; $j < size($selection); $j++)
+>>>>>>> master
         {
            duplicate -rr $selection[$j];
            float $xRand = rand ($xMin, $xMax);
@@ -31,7 +39,8 @@ global proc DuplicateObject (string $dupAmount, string $xMinName, string $xMaxNa
         
     }
 }
- global proc  float GetFloatFieldValue(string $control)
+
+global proc  float GetFloatFieldValue(string $control)
 {
 	float $value = `floatField -query -value $control`;
 	return $value;
@@ -41,7 +50,9 @@ global proc  int GetIntFieldValue(string $control)
 	int $value = `intField -query -value $control`;
 	return $value;
 }
- /*proc RandomDuplicate()
+
+
+/*proc RandomDuplicate()
 {
 string $xRangeMin = `floatfield -query -value $xRangeMin`;
 string $xRangeMax = `floatfield -query -value $xRangeMax`;
@@ -51,10 +62,12 @@ string $zRangeMin = `floatfield -query -value $zRangeMin`;
 string $zRangeMax = `floatfield -query -value $zRangeMax`;
 print ($xRangeMin);
 }*/
- proc RandomDuplicateUI()
+
+proc RandomDuplicateUI()
 {
 string $mainWindow = "RandomDuplicateWindow";
- 	//If window already is open, deletes window and creates a new one.
+
+	//If window already is open, deletes window and creates a new one.
 	if (`window -exists $mainWindow`)
 	{
 		deleteUI $mainWindow;
@@ -88,7 +101,8 @@ string $mainWindow = "RandomDuplicateWindow";
 	string $zRangeMin = `floatField -parent $zRangeRowLayout -value 0`;
 	text -parent $zRangeRowLayout -label "Z Range Max";
 	string $zRangeMax = `floatField -parent $zRangeRowLayout -value 0`;
- 	//Button to run the script
+
+	//Button to run the script
 	string $button = `button -parent $mainCol -label "Generate" -command ("DuplicateObject(\"" + $dupIntField + "\", \"" + $xRangeMin + "\", \"" + $xRangeMax + "\", \"" + $yRangeMin + "\", \"" + $yRangeMax + "\", \"" + $zRangeMin + "\", \"" + $zRangeMax + "\")")`;
 	// "DuplicateObject(\"" + $dupIntField + "\", \"" + xRangeMin + "\", \"" + $xRangeMax + "\", \"" + $yRangeMin + "\", \"" + $yRangeMax + "\", \"" + $zRangeMin + "\", \"" + $zRangeMax + "\")"
 showWindow $mainWindow;

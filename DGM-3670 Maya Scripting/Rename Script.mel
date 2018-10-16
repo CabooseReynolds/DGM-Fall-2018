@@ -39,7 +39,7 @@ string $Suffix = `textField -query -text Type`;
 	RenameSelected($Prefix + "_##_" + $Suffix);
 }
 
-global proc RenameUI()
+proc RenameUI()
 {
 string $mainWindow = "RenameWindow";
 
@@ -61,3 +61,4 @@ string $button = `button -parent $mainCol -label "Rename" -command "Rename"`;
 
 showWindow $mainWindow;
 }
+RenameUI;

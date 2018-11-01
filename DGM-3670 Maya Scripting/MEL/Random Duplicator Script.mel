@@ -1,0 +1,110 @@
+//DuplicateObject(25, -25, 25, -25, 25, -25, 25);
+global proc DuplicateObject (string $dupAmount, string $xMinName, string $xMaxName, string $yMinName, string $yMaxName, string $zMinName, string $zMaxName)
+{
+	//get selection
+    string $selection[] =`ls -selection`;
+	
+	//query values of float fields and assigns to variables
+	
+	int $amount = `GetIntFieldValue($dupAmount)`;
+	float $xMin = `GetFloatFieldValue($xMinName)`;
+	float $xMax = `GetFloatFieldValue($xMaxName)`;
+	float $yMin = `GetFloatFieldValue($yMinName)`;
+	float $yMax = `GetFloatFieldValue($yMaxName)`;
+	float $zMin = `GetFloatFieldValue($zMinName)`;
+	float $zMax = `GetFloatFieldValue($zMaxName)`;
+	
+	//Creates parameters for duplicates
+<<<<<<< HEAD
+    for($j = 0; $j < size($selection); $j++)
+//    for($i = 0; $i < $amount; $i++)
+    {
+        for($i = 0; $i < $amount; $i++)
+ //       for($j = 0; $j < size($selection); $j++)
+=======
+    for($i = 0; $i < $amount; $i++)
+    {
+        
+        for($j = 0; $j < size($selection); $j++)
+>>>>>>> master
+        {
+           duplicate -rr $selection[$j];
+           float $xRand = rand ($xMin, $xMax);
+           float $yRand = rand ($yMin, $yMax);
+           float $zRand = rand ($zMin, $zMax);
+//           float $randNum = rand (1 3);
+           move -ws -wd $xRand $zRand $yRand $selection[$j];
+//	   scale -r $randNum $randNum $randNum ;
+        }
+        
+    }
+}
+
+global proc  float GetFloatFieldValue(string $control)
+{
+	float $value = `floatField -query -value $control`;
+	return $value;
+}
+global proc  int GetIntFieldValue(string $control)
+{
+	int $value = `intField -query -value $control`;
+	return $value;
+}
+
+
+/*proc RandomDuplicate()
+{
+string $xRangeMin = `floatfield -query -value $xRangeMin`;
+string $xRangeMax = `floatfield -query -value $xRangeMax`;
+string $yRangeMin = `floatfield -query -value $yRangeMin`;
+string $yRangeMax = `floatfield -query -value $yRangeMax`;
+string $zRangeMin = `floatfield -query -value $zRangeMin`;
+string $zRangeMax = `floatfield -query -value $zRangeMax`;
+print ($xRangeMin);
+}*/
+
+proc RandomDuplicateUI()
+{
+string $mainWindow = "RandomDuplicateWindow";
+
+	//If window already is open, deletes window and creates a new one.
+	if (`window -exists $mainWindow`)
+	{
+		deleteUI $mainWindow;
+	}
+	
+	$mainWindow = `window -title "Random Placement Generator" $mainWindow`;
+	string $mainCol = `columnLayout -parent $mainWindow -adjustableColumn 1`;
+	
+	//Creates row to declare how many duplicates you want
+	string $dupRowLayout = `rowLayout -parent $mainCol -numberOfColumns 2 -adjustableColumn 2 -columnAttach2 "left" "left" -columnOffset2 0 10`;
+	text -parent $dupRowLayout -label "Duplicate";
+	string $dupIntField = `intField -parent $dupRowLayout -minValue 1 -value 10`;
+	
+	//Creates row for X range Min and Max values
+	string $xRangeRowLayout = `rowLayout -parent $mainCol -numberOfColumns 4 -columnAttach4 "left" "left" "left" "left" -columnOffset4 0 10 10 10`;
+	text -parent $xRangeRowLayout -label "X Range Min";
+	string $xRangeMin = `floatField -parent $xRangeRowLayout -value 0`;
+	text -parent $xRangeRowLayout -label "X Range Max";
+	string $xRangeMax = `floatField -parent $xRangeRowLayout -value 0`;
+	
+	//Creates row for Y range Min and Max values
+	string $yRangeRowLayout = `rowLayout -parent $mainCol -numberOfColumns 4 -columnAttach4 "left" "left" "left" "left" -columnOffset4 0 10 10 10`;
+	text -parent $yRangeRowLayout -label "Y Range Min";
+	string $yRangeMin = `floatField -parent $yRangeRowLayout -value 0`;
+	text -parent $yRangeRowLayout -label "Y Range Max";
+	string $yRangeMax = `floatField -parent $yRangeRowLayout -value 0`;
+	
+	//Creates row for Z range Min and Max values	
+	string $zRangeRowLayout = `rowLayout -parent $mainCol -numberOfColumns 4 -columnAttach4 "left" "left" "left" "left" -columnOffset4 0 10 10 10`;
+	text -parent $zRangeRowLayout -label "Z Range Min";
+	string $zRangeMin = `floatField -parent $zRangeRowLayout -value 0`;
+	text -parent $zRangeRowLayout -label "Z Range Max";
+	string $zRangeMax = `floatField -parent $zRangeRowLayout -value 0`;
+
+	//Button to run the script
+	string $button = `button -parent $mainCol -label "Generate" -command ("DuplicateObject(\"" + $dupIntField + "\", \"" + $xRangeMin + "\", \"" + $xRangeMax + "\", \"" + $yRangeMin + "\", \"" + $yRangeMax + "\", \"" + $zRangeMin + "\", \"" + $zRangeMax + "\")")`;
+	// "DuplicateObject(\"" + $dupIntField + "\", \"" + xRangeMin + "\", \"" + $xRangeMax + "\", \"" + $yRangeMin + "\", \"" + $yRangeMax + "\", \"" + $zRangeMin + "\", \"" + $zRangeMax + "\")"
+showWindow $mainWindow;
+}
+RandomDuplicateUI;

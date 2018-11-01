@@ -1,0 +1,94 @@
+//Wheels//
+polyCylinder -r 1 -h 2 -sx 20 -sy 1 -sz 1 -ax 0 1 0 -rcp 0 -cuv 3 -ch 1 -name "BackRightWheel";
+scale -r 1 0.55 1 ;
+rotate -r -os -fo 90 0 0 ;
+move -r -4 0 2 ;
+polyCylinder -r 1 -h 2 -sx 20 -sy 1 -sz 1 -ax 0 1 0 -rcp 0 -cuv 3 -ch 1 -name "BackLeftWheel";
+scale -r 1 0.55 1 ;
+rotate -r -os -fo 90 0 0 ;
+move -r -4 0 -2 ;
+polyCylinder -r 1 -h 2 -sx 20 -sy 1 -sz 1 -ax 0 1 0 -rcp 0 -cuv 3 -ch 1 -name "FrontRightWheel";
+scale -r .75 0.40 .75 ;
+rotate -r -os -fo 90 0 0 ;
+move -r 3 -.25 1.85 ;
+polyCylinder -r 1 -h 2 -sx 20 -sy 1 -sz 1 -ax 0 1 0 -rcp 0 -cuv 3 -ch 1 -name "FrontLeftWheel";
+scale -r .75 0.40 .75 ;
+rotate -r -os -fo 90 0 0 ;
+move -r 3 -.25 -1.85 ;
+
+//Wheel Extrudes//
+select -r BackRightWheel.f[40:59] ;
+hilite BackRightWheel.f[40:59] ;
+selectMode -component ;
+select -r BackRightWheel.f[40:59] ;
+polyExtrudeFacet -constructionHistory 1 -keepFacesTogether 1 -pvx -4 -pvy 1.8 -pvz 2.55 -divisions 1 -twist 0 -taper 1 -off 0 -thickness 0 -smoothingAngle 30 BackRightWheel.f[40:59];
+scale -r -p -4cm 1.78814e-07cm 2.55cm 0.63913 0.63913 0.63913 ;
+select -r BackRightWheel.f[40:59] ;
+polyExtrudeFacet -constructionHistory 1 -keepFacesTogether 1 -pvx -4 -pvy 1.8 -pvz 2.55 -divisions 1 -twist 0 -taper 1 -off 0 -thickness 0 -smoothingAngle 30 BackRightWheel.f[40:59];
+setAttr "polyExtrudeFace2.localTranslate" -type double3 0 0 -0.313619 ;
+select -r BackLeftWheel.f[20:39] ;
+hilite BackLeftWheel.f[20:39] ;
+selectMode -component ;
+select -r BackLeftWheel.f[20:39] ;
+polyExtrudeFacet -constructionHistory 1 -keepFacesTogether 1 -pvx -4 -pvy 1.8 -pvz -2.55 -divisions 1 -twist 0 -taper 1 -off 0 -thickness 0 -smoothingAngle 30 BackLeftWheel.f[20:39];
+scale -r -p -4cm 1.78814e-07cm -2.55cm 0.63913 0.63913 0.63913 ;
+select -r BackLeftWheel.f[20:39] ;
+polyExtrudeFacet -constructionHistory 1 -keepFacesTogether 1 -pvx -4 -pvy 1.8 -pvz -2.55 -divisions 1 -twist 0 -taper 1 -off 0 -thickness 0 -smoothingAngle 30 BackLeftWheel.f[20:39];
+setAttr "polyExtrudeFace4.localTranslate" -type double3 0 0 -0.313619 ;
+select -r FrontRightWheel.f[40:59] ;
+hilite  FrontRightWheel.f[40:59] ;
+selectMode -component ;
+hilite  FrontRightWheel.f[40:59] ;
+polyExtrudeFacet -constructionHistory 1 -keepFacesTogether 1 -pvx 2.999999911 -pvy -0.2499998659 -pvz 2.4 -divisions 1 -twist 0 -taper 1 -off 0 -thickness 0 -smoothingAngle 30 FrontRightWheel.f[40:59];
+scale -oa 3.141593rad 0rad 1.570796rad -r -p 3cm -0.25cm 2.4cm 0.747975 0.747975 0.747975 ;
+select -r FrontRightWheel.f[40:59] ;
+polyExtrudeFacet -constructionHistory 1 -keepFacesTogether 1 -pvx 2.999999911 -pvy -0.2499998659 -pvz 2.4 -divisions 1 -twist 0 -taper 1 -off 0 -thickness 0 -smoothingAngle 30 FrontRightWheel.f[40:59];
+setAttr "polyExtrudeFace6.localTranslate" -type double3 0 0 -0.220413 ;
+select -r FrontLeftWheel.f[20:39] ;
+hilite  FrontLeftWheel.f[20:39] ;
+selectMode -component ;
+hilite  FrontLeftWheel.f[20:39] ;
+polyExtrudeFacet -constructionHistory 1 -keepFacesTogether 1 -pvx 2.999999911 -pvy -0.2499998659 -pvz -2.4 -divisions 1 -twist 0 -taper 1 -off 0 -thickness 0 -smoothingAngle 30 FrontLeftWheel.f[20:39];
+scale -oa 3.141593rad 0rad 1.570796rad -r -p 3cm -0.25cm -2.4cm 0.747975 0.747975 0.747975 ;
+select -r FrontLeftWheel.f[20:39] ;
+polyExtrudeFacet -constructionHistory 1 -keepFacesTogether 1 -pvx 2.999999911 -pvy -0.2499998659 -pvz -2.4 -divisions 1 -twist 0 -taper 1 -off 0 -thickness 0 -smoothingAngle 30 FrontLeftWheel.f[20:39];
+setAttr "polyExtrudeFace8.localTranslate" -type double3 0 0 -0.220413 ;
+
+
+//BuggyBody//
+polyCube -w 1 -h 1 -d 1 -sx 1 -sy 1 -sz 1 -ax 0 1 0 -cuv 4 -ch 1 -name "Buggy Body";
+select -r Buggy_Body.f[4] ;
+move -r 1.55 0 0 ;
+select -r Buggy_Body.f[4] ;
+polyExtrudeFacet -constructionHistory 1 -keepFacesTogether 1 -pvx 2.049999952 -pvy 0 -pvz 0 -divisions 1 -twist 0 -taper 1 -off 0 -thickness 0 -smoothingAngle 30 Buggy_Body.f[4];
+setAttr "polyExtrudeFace9.localTranslate" -type double3 0 0 1.5 ;
+select -add Buggy_Body.e[5] Buggy_Body.e[7] Buggy_Body.e[9] Buggy_Body.e[11] ;
+scale -r -p 2.05cm 0cm 0cm 1 1 2.610722 ;
+select -r Buggy_Body.f[5] ;
+move -r -4.494844 0 0 ;
+scale -r -p -4.994844cm 0cm 0cm 1 1 2.856239 ;
+select -r Buggy_Body.f[4] ;
+scale -r -p 3.55cm 0cm 0cm 1 1 0.428817 ;
+select -r Buggy_Body.e[6] ;
+move -r 0 0.822798 0 ;
+polyCylinder -r 1 -h 2 -sx 20 -sy 1 -sz 1 -ax 0 1 0 -rcp 0 -cuv 3 -ch 1;
+rotate -r -ws -fo -90 0 0 ;
+scale -r 0.146243 2 0.146243 ;
+move -r 3.086477 -0.24659 0 ;
+polySphere -r 1 -sx 20 -sy 20 -ax 0 1 0 -cuv 2 -ch 1 -name "BuggyCab";
+move -r -2.08388 0.533905 0 ;
+scale -r 2.551754 1 1 ;
+
+//Grouping//
+select -r FrontRightWheel ;
+select -tgl FrontLeftWheel ;
+doGroup 0 1 1;
+
+//Parenting//
+select -r BackLeftWheel ;
+select -tgl BackRightWheel ;
+select -tgl BuggyCab ;
+select -tgl pCylinder1 ;
+select -r BackLeftWheel BackRightWheel pCylinder1 group1 ;
+select -tgl Buggy_Body ;
+parent;

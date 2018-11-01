@@ -1,0 +1,130 @@
+//Global Procedure to create the various CTRL Shapes
+global proc string CreateCtrlsShapes(string $shape){
+	string $ctrl[];  
+	if ($shape == "circle")
+	//creates a circle
+	{
+		$ctrl = `circle -c 0 0 0 -nr 0 1 0 -sw 360 -r 1 -d 3 -ut 0 -tol 0.01 -s 8 -ch 1`;
+	}
+	else if ($shape == "square")
+	{
+	//creates a square
+		$ctrl = `circle -c 0 0 0 -nr 0 1 0 -sw 360 -r 1 -d 3 -ut 0 -tol 0.01 -s 8 -ch 1`;
+            select -r nurbsCircle1.cv[1];
+            select -tgl nurbsCircle1.cv[3];
+            select -tgl nurbsCircle1.cv[5];
+            select -tgl nurbsCircle1.cv[7];
+			scale -r -p 0cm 0cm 0cm 0.630837 0.630837 0.630837 ;
+			select -cl;
+	}
+	
+	else if ($shape == "diamond")
+	// uses a circle to and scales to create a diamond shape
+    {
+		$ctrl = `circle -c 0 0 0 -nr 0 1 0 -sw 360 -r 1 -d 3 -ut 0 -tol 0.01 -s 8 -ch 1`;
+            select -r nurbsCircle1.cv[1];
+            select -tgl nurbsCircle1.cv[3];
+            select -tgl nurbsCircle1.cv[5];
+            select -tgl nurbsCircle1.cv[7];
+            scale -r -p 0cm 0cm 0cm 0.0687519 0.5 0.0687519 ;
+			select -cl;
+	}
+	else if ($shape == "flower")
+	// uses a circle and scales to create a flower shape
+	{
+		$ctrl = `circle -c 0 0 0 -nr 0 1 0 -sw 360 -r 1 -d 3 -ut 0 -tol 0.01 -s 8 -ch 1`;
+			select -r nurbsCircle1.cv[1] ;
+			select -tgl nurbsCircle1.cv[7] ;
+			select -tgl nurbsCircle1.cv[5] ;
+			select -tgl nurbsCircle1.cv[3] ;
+			scale -r -p 0cm 0cm 0cm -0.34414 -0.34414 -0.34414 ;
+			select -cl;
+	}
+    
+	return $ctrl[0];
+}
+
+//Creates the controls based off the selection and groups the ctrl into a ctrl group.
+global proc CreateCtrls(string $ctrlShape)
+{
+	string $selection[] = `ls -sl`;
+	float $controlRadius = 1;
+	string $ctrl;
+//	float $controlRadius = 1; 
+// Radius of the Control
+
+for($i = 0; $i < size($selection); $i++)
+{
+// Creating control shape
+//	string $ctrl[] = `circle -c 0 0 0 -nr 0 1 0 -sw 360 -r $controlRadius -d 3 -ut 0 -tol 0.01 -s 8 -ch 1`;
+    $ctrl = CreateCtrlsShapes($ctrlShape);
+    select -r $ctrl;
+// Tokenize the name of the selection
+	string $name[];
+	tokenize $selection[$i] "_" $name;
+
+//Creation of the new name
+	string $newName = $name[0];
+
+	for($h = 1; $h <size($name) - 1; $h++)
+//removing anything after the "_" to allow for the Ctrl to be added to the name of th Obj
+		{
+			$newName += ("_" + $name[$h]);
+		}
+    
+// Adding _Ctrl to the name of the newName for the Obj
+	string $ctrlName = ($newName + "_Ctrl");
+	rename $ctrl $ctrlName;
+
+// Change color of the Ctrl Shape
+	color -rgb 1 0 0 $ctrlName;
+
+// Creating the Grop and adding the _Grp name to the Ctrl Name
+	group -name ($ctrlName + "_Grp");
+
+// 
+    select -add $selection[$i];
+// Match tranformations of the Joints and the Ctrl Grps
+    matchTransform;
+
+// If no selection is made, a Ctrl and Ctrl Grp are created at 0, 0, 0.
+}
+    if (size($selection) == 0)
+    {
+        string $ctrl[] = `circle -c 0 0 0 -nr 0 1 0 -sw 360 -r $controlRadius -d 3 -ut -0 -tol 0.01 -s 8 -ch 1`;
+        group;
+    }
+
+}
+
+global proc CreateControlsUI()
+{
+	string $mainWindow = "CreateControlWindow";
+	
+	if (`window -exists $mainWindow`)
+	{
+		deleteUI $mainWindow;
+	}
+	
+	$mainWindow = `window -title "Create Controls" $mainWindow`;
+	string $mainCol = `columnLayout -parent $mainWindow -adjustableColumn 1`;
+	
+	string $shapeRowLayout = `rowLayout -parent $mainCol -numberOfColumns 5 -columnAttach5 "left" "left" "left" "left" "left" -columnOffset5 0 10 10 10 10`;
+	text -parent $shapeRowLayout -label "Control Shape";
+	string $circleButton = `button -parent $shapeRowLayout -label "Circle" -command ("CreateCtrls(\"circle\")")`;
+	string $squareButton = `button -parent $shapeRowLayout -label "Square" -command ("CreateCtrls(\"square\")")`;
+	string $flowerButton = `button -parent $shapeRowLayout -label "Flower" -command ("CreateCtrls(\"flower\")")`;
+	string $diamondButton = `button -parent $shapeRowLayout -label "Diamond" -command ("CreateCtrls(\"diamond\")")`;
+	
+/*	string $rangeRowLayout = `rowLayout -parent $mainCol -numberOfColumns 4` -columnAttach 4  "left" "left" "left" "left" -columnOffset4 0 10`;
+	text -parent $rangeRowLayout -label "Range";
+	string $xRange = `floatField -parent $rangeRowLayout -value 0`;
+	string $yRange = `floatField -parent $rangeRowLayout -value 0`;
+	string $zRange = `floatField -parent $rangeRowLayout -value 0`;
+	
+	string $button = `button -parent $mainCol -label "Generate"`;
+	*/
+	
+	showWindow $mainWindow;
+}
+CreateControlsUI();

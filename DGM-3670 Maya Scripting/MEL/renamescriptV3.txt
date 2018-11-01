@@ -1,0 +1,53 @@
+global proc RenameSelected(string $inputString)
+{
+	string $selectedObj [] = `ls -selection`; // Selected objects
+	string $new[]; //new array to hold tokenize
+	tokenize $inputString "##" $new;
+	int $number = 1;
+
+	int $hashNum = size($inputString) - (size($new[0]) + size($new[1]));
+
+	for($item in $selectedObj)
+	{
+		string $paddedNumber;
+		int $selectionNum = 0;
+
+		for($i = 0; $i <= $number; $i+= 10)
+		{
+			$selectionNum++;
+		}
+	
+		int $sizeDif = $hashNum - $selectionNum;
+
+		for($i = 0; $i < $sizeDif; $i++)
+		{
+			$paddedNumber += "0";
+		}
+	
+		$paddedNumber += $number;
+		$number++;
+
+		string $rearrange = $new[0] + $paddedNumber + $new[1];
+		rename $item $rearrange;
+	}
+}
+
+proc Rename()
+{
+	RenameSelected("Prefix_##_Suffix");
+}
+
+string $window = `window`;
+rowColumnLayout -numberOfColumns 2 -columnAttach 1 "right" 0
+    -columnWidth 1 50 -columnWidth 2 250;
+text -label "Prefix";
+string $Prefix = `textField`;
+text -label "Suffix";
+string $Suffix = `textField`;
+button -label "Rename" -command "Rename";
+showWindow;
+
+proc Rename()
+{
+	RenameSelected("Prefix_##_Suffix");
+}

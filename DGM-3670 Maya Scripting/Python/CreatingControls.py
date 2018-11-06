@@ -21,12 +21,29 @@ def CreateCtrlsShapes(shape):
 
 
 def CreateCtrls(ctrlShape):
-    cmds.select = ls sl
-    controlRadius = 1
-    ctrl
+    sels = cmds.ls(sl = True)
+    cmds.select(cl = True)
+    ctrl = CreateCtrlsShapes("Circle")
 
-for (i = 0; i < size(selection) i++):
+    for sel in sels:
+        cmds.matchTransform(ctrl (), sel)
+
+CreateCtrls("Circle")
+
+
+for sel in sels:
         ctrl = CreateCtrlsShapes (ctrlShape)
-        cmds.select(ctrl)
+        cmds.select(cl = True)
         name[]
         selection[i] = ‘ctrl’.split(‘_’)
+
+
+import maya.cmds as cmds
+def createJnts():
+    sels = cmds.ls(sl = True)
+    cmds.select(cl = True)
+
+    for sel in sels:
+        cmds.matchTransform(cmds.joint(), sel)
+
+createJnts()

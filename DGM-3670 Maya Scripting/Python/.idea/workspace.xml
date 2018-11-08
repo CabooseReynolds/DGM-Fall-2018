@@ -2,20 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="cb1104bb-34a6-4cdb-8607-c318d2ece8d8" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/CreateJoints.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/RandomDuplicator.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/RenameScript.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../DGM-3620 Character Dev/Villan/44020796674_61e0e2418b_b.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../DGM-3620 Character Dev/Villan/91e5b4df8c557e6ed4f8c26a9bb5326a--mens-street-fashion-dark-fashion.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../DGM-3620 Character Dev/Villan/Current+wallpaper+thread+a+go+_40cee8479d5a0e46c2bbe7d4ccecf75c.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../DGM-3620 Character Dev/Villan/I am Hacker.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../DGM-3620 Character Dev/Villan/depositphotos_183686762-stock-photo-young-man-wearing-hoodie-pressing.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../DGM-3620 Character Dev/Villan/hipster-boy-wallpaper-5.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../DGM-3620 Character Dev/Villan/images.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../DGM-3620 Character Dev/Villan/men-hoods-artwork-monochrome-wallpaper.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../DGM-3620 Character Dev/Villan/photo-1491743715344-d5eed2a9c5bd.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../DGM-3620 Character Dev/Villan/photo-1513789181297-6f2ec112c0bc.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../DGM-3620 Character Dev/Villan/young-man-wearing-hoodie-pressing-virtual-buttons-young-man-wearing-hoodie-pressing-virtual-buttons-109429973.jpg" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/../../DGM-3660 ADV-Rigging/Mei Rig/Mei.ma" beforeDir="false" afterPath="$PROJECT_DIR$/../../DGM-3660 ADV-Rigging/Mei Rig/Mei.ma" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/CreatingControls.py" beforeDir="false" afterPath="$PROJECT_DIR$/CreatingControls.py" afterDir="false" />
@@ -30,14 +16,14 @@
     <session id="-56363869">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="5" />
+          <entry key="project.closed" value="6" />
           <entry key="project.open.time.14" value="1" />
           <entry key="project.open.time.17" value="1" />
           <entry key="project.open.time.18" value="1" />
           <entry key="project.open.time.2" value="1" />
-          <entry key="project.open.time.20" value="1" />
+          <entry key="project.open.time.20" value="3" />
           <entry key="project.open.time.24" value="1" />
-          <entry key="project.opened" value="6" />
+          <entry key="project.opened" value="8" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
@@ -52,12 +38,12 @@
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="py" value="2962" />
+          <entry key="py" value="3436" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="Python" value="2962" />
+          <entry key="Python" value="3436" />
         </counts>
       </usages-collector>
     </session>
@@ -67,17 +53,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/CreatingControls.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="328">
-              <caret line="35" column="30" selection-start-line="35" selection-start-column="30" selection-end-line="35" selection-end-column="30" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/RenameScript.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="255">
-              <caret line="15" column="34" lean-forward="true" selection-start-line="15" selection-start-column="34" selection-end-line="15" selection-end-column="34" />
+            <state relative-caret-position="243">
+              <caret line="27" lean-forward="true" selection-start-line="27" selection-end-line="27" />
             </state>
           </provider>
         </entry>
@@ -112,8 +89,8 @@
     <sorting>DEFINITION_ORDER</sorting>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="917" />
-    <option name="width" value="1009" />
+    <option name="x" value="463" />
+    <option name="width" value="1010" />
     <option name="height" value="1040" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
@@ -161,7 +138,7 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="734" y="0" width="807" height="832" extended-state="0" />
+    <frame x="371" y="0" width="808" height="832" extended-state="0" />
     <layout>
       <window_info content_ui="combo" id="Project" order="0" weight="0.19402985" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
@@ -204,16 +181,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="289">
           <caret line="17" column="47" lean-forward="true" selection-start-line="17" selection-start-column="47" selection-end-line="17" selection-end-column="47" />
-          <folding>
-            <element signature="e#0#24#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/RenameScript.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="15" column="34" lean-forward="true" selection-start-line="15" selection-start-column="34" selection-end-line="15" selection-end-column="34" />
         </state>
       </provider>
     </entry>
@@ -224,10 +191,17 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/RenameScript.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="255">
+          <caret line="15" column="34" selection-start-line="15" selection-start-column="34" selection-end-line="15" selection-end-column="34" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/CreatingControls.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="328">
-          <caret line="35" column="30" selection-start-line="35" selection-start-column="30" selection-end-line="35" selection-end-column="30" />
+        <state relative-caret-position="243">
+          <caret line="27" lean-forward="true" selection-start-line="27" selection-end-line="27" />
         </state>
       </provider>
     </entry>

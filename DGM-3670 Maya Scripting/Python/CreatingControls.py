@@ -2,7 +2,7 @@ import maya.cmds as cmds
 
 
 def CreateCtrlsShapes(shape):
-    if (shape == "Cirle"):
+    if (shape == "Circle"):
         ctrl = cmds.circle(nr=[0, 1, 0], c=[0, 0, 0], sw=360, r=1)[0]
     elif (shape == "Square"):
         ctrl = cmds.circle(nr=[0, 1, 0], c=[0, 0, 0], sw=360, r=1)[0]
@@ -35,7 +35,7 @@ def CreateCtrls(ctrlShape):
 
             ctrlGrp = cmds.group(ctrlName, world=True, name=(ctrlName + "_Grp"))
 
-            cmds.matchTransform(ctrlGrp, sel, pos=True, rot=False, scl=False)
+            cmds.matchTransform(ctrlGrp, sel, pos=True, rot=True, scl=False)
 
     else:
         control = CreateCtrlsShapes(ctrlShape)

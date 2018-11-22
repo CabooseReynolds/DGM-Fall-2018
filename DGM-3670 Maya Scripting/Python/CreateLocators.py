@@ -7,8 +7,8 @@ def WindowMaker():
     if cmds.window(mWin, exists=True):
         cmds.deleteUI(mWin)
 
-    mWin = cmds.window (mWin, title ='Create Locator')
-    mCol = cmds.columnLayout (parent=mWin, adjustableColumn=True)
+    mWin = cmds.window(mWin, title ='Create Locator')
+    mCol = cmds.columnLayout(parent=mWin, adjustableColumn=True)
     #dropCtrl = cmds.optionMenuGrp(parent=mCol, label='Type')
     #cmds.menuItem(parent=dropCtrl, label='Bounding Box')
     #cmds.menuItem(parent=dropCtrl, label="Pivot Point")

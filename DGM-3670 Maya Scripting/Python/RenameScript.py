@@ -24,3 +24,19 @@ def suffixer(suffix = "suffixin"):
         cmds.rename(object, sels_short[number]+suffix)
 
 suffixer('_sufix')
+
+class RenamerUI():
+    def __init__(self):
+        self.mWindow = "RenamerWindow"
+
+    def create (self):
+        self.delete()
+
+        self.mWindow = cmds.window(self.mWindow, title='Renamer')
+        self.mCol = cmds.columnLayout(parent=self.mWindow, adjustableColumn=True)
+        self.name
+
+
+    def delete(self):
+        if cmds.window(self.mWindow, q=True, exists=True):
+            cmds.deleteUI(self.mWindow)

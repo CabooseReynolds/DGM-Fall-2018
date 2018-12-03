@@ -7,7 +7,7 @@ class LocatorUI():
     def create(self):
         self.delete()
 
-        self.mWin = cmds.window(self.mWin, title='Create Locator')
+        self.mWin = cmds.window(self.mWin, title='Create Locators')
         mCol = cmds.columnLayout(parent=self.mWin, adjustableColumn=True)
         self.dropCtrl = cmds.optionMenu(parent=mCol, label='Type')
         cmds.menuItem(parent=self.dropCtrl, label='Bounding Box')

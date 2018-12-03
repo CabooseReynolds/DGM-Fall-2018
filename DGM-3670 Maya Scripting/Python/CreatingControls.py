@@ -7,10 +7,20 @@ class ControlUI():
     def create(self):
         self.delete()
 
-        self.mWindow = cmds.window(self.mWindow, title='Create Joints')
+        self.mWindow = cmds.window(self.mWindow, title='Create Controls')
         self.mCol = cmds.columnLayout(parent=self.mWindow, adjustableColumn=True)
-        self.button = cmds.button(parent=self.mCol, label='Create Joints', command=lambda x: self.createJnts())
+        column = cmds.columnLayout(parent=self.mWindow, adjustableColumn=True, columnAttach=["both", 25], rowSpacing=5)
 
+        self.oMenuShape = cmds.optionMenu(label="Control Shape", parent=column, width=100)
+        cmds.menuItem(label="Circle", parent=self.oMenuShape)
+        cmds.menuItem(label="Square", parent=self.oMenuShape)
+        cmds.menuItem(label="Flower", parent=self.oMenuShape)
+        cmds.menuItem(label="Diamond", parent=self.oMenuShape)
+
+        row = cmds.rowLayout(adjustableColumn=True, columnAttach1="both", columnOffset1=100, parent=self.mCol)
+        cmds.button(height=25, label="Create Controls",
+                    command=lambda *args: self.CreateCtrls(cmds.optionMenu(self.oMenuShape, q=True, v=True)),
+                    parent=row, width=100)
         cmds.showWindow(self.mWindow)
 
     def delete(self):
@@ -18,7 +28,7 @@ class ControlUI():
             cmds.deleteUI(self.mWindow)
 
     '''Choose the shape of the Controls you will be creating'''
-    def CreateCtrlsShapes(shape):
+    def CreateCtrlsShapes(self, shape):
         if (shape == "Circle"):
             ctrl = cmds.circle(nr=[0, 1, 0], c=[0, 0, 0], sw=360, r=1)[0]
         elif (shape == "Square"):
@@ -39,14 +49,14 @@ class ControlUI():
         return ctrl
 
     '''Creates controls based of the chosen shape.'''
-    def CreateCtrls(ctrlShape):
+    def CreateCtrls(self, ctrlShape):
         sels = cmds.ls(sl=True)
         cmds.select(cl=True)
 
         if len(sels) > 0:
 
             for sel in sels:
-                shape = CreateCtrlsShapes(ctrlShape)
+                shape = self.CreateCtrlsShapes(ctrlShape)
 
                 ctrlName = cmds.rename(shape, (sel + "_Ctrl"))
 
@@ -55,9 +65,9 @@ class ControlUI():
                 cmds.matchTransform(ctrlGrp, sel, pos=True, rot=True, scl=False)
 
         else:
-            control = CreateCtrlsShapes(ctrlShape)
-            ctrlName = cmds.rename(shape, "_Ctrl")
+            shape = self.CreateCtrlsShapes(ctrlShape)
+            ctrlName = cmds.rename(shape, ("_Ctrl"))
             ctrlGrp = cmds.group(ctrlName, world=True, name=(ctrlName + "_Grp"))
 
-
-    CreateCtrls("Diamond")
+mytool = ControlUI()
+mytool.create()
